@@ -93,40 +93,43 @@ class Automouse:
         image_data = b64decode(base64_image)
         image = Image.open(BytesIO(image_data))
         # image.show()
-        try:
-            l, r, w, h = pyautogui.locateOnScreen(image, confidence=0.9)  # 添加confidence防止nonetypeeerror，需要安装opencv库
-            pyautogui.moveTo(l, r)
-            print(f'标题栏坐标信息：x:{l}, y:{r}, w:{w}, h:{h}')
-            while True:
-                # 移至“去观看”按钮并点击
-                pyautogui.click(l + 340, r + 400, button='left')
-                if likes < self.MAX_LIKES:
-                    if self.check_video(l, r):
-                        self.like_video(l, r)
-                    else:
-                        pyautogui.sleep(2)
-                        self.like_video(l, r)
-                    likes += 1
-                    print(f'点赞视频成功,第{likes}次点赞')
+        # try:
+        print('into 111')
+        print(pyautogui.locateOnScreen)
+        l, r, w, h = pyautogui.locateOnScreen(image, confidence=0.9)  # 添加confidence防止nonetypeeerror，需要安装opencv库
+        print('into 222')
+        pyautogui.moveTo(l, r)
+        print(f'标题栏坐标信息：x:{l}, y:{r}, w:{w}, h:{h}')
+        while True:
+            # 移至“去观看”按钮并点击
+            pyautogui.click(l + 340, r + 400, button='left')
+            if likes < self.MAX_LIKES:
+                if self.check_video(l, r):
+                    self.like_video(l, r)
+                else:
+                    pyautogui.sleep(2)
+                    self.like_video(l, r)
+                likes += 1
+                print(f'点赞视频成功,第{likes}次点赞')
 
-                if self.check_cart(l, r) and carts < self.MAX_CARTS:
-                    if self.view_cart(l, r):
-                        carts += 1
-                        print(f'浏览购物车成功,第{carts}次浏览')
-                    else:
-                        print('浏览购物车失败')
-                elif carts == self.MAX_CARTS:
-                    break
+            if self.check_cart(l, r) and carts < self.MAX_CARTS:
+                if self.view_cart(l, r):
+                    carts += 1
+                    print(f'浏览购物车成功,第{carts}次浏览')
+                else:
+                    print('浏览购物车失败')
+            elif carts == self.MAX_CARTS:
+                break
 
-                pyautogui.click(l + 20, r + 115, button='left')
+            pyautogui.click(l + 20, r + 115, button='left')
 
-        except TypeError:
-            pyautogui.alert(text='无法找到视频界面，请确保界面无遮挡，显示完整。', title='警告！')
-        except pyautogui.FailSafeException:
-            pyautogui.alert(text='用户强制退出！', title='警告！')
-        except Exception as e:
-            # 处理其他异常的代码块
-            pyautogui.alert(text=f'发生了未知异常：{type(e).__name__}', title='警告！')
+        # except TypeError:
+        #     pyautogui.alert(text='无法找到视频界面，请确保界面无遮挡，显示完整。', title='警告！')
+        # except pyautogui.FailSafeException:
+        #     pyautogui.alert(text='用户强制退出！', title='警告！')
+        # except Exception as e:
+        #     # 处理其他异常的代码块
+        #     pyautogui.alert(text=f'发生了未知异常：{type(e).__name__}', title='警告！')
         print('退出程序！')
 
 
