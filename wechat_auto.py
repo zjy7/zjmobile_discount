@@ -85,7 +85,7 @@ class Automouse:
             except ValueError:
                 pyautogui.alert(text='仅接受数字输入！', title='错误！')
 
-        pyautogui.alert(text='程序运行中将鼠标快速移动至屏幕左上角即可退出运行！', title='告知！')
+        # pyautogui.alert(text='程序运行中将鼠标快速移动至屏幕左上角即可退出运行！', title='告知！')
         likes = 0
         carts = 0
         # 检测是否有看视频的标题图像，起始xy坐标和宽高
