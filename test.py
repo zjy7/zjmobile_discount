@@ -92,6 +92,18 @@ iVBORw0KGgoAAAANSUhEUgAAABoAAAAZCAYAAAAv3j5gAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
     else:
         print('没找到小程序的图片')
 
+    pyautogui.moveTo(1433, 622)
+
+    pyautogui.sleep(1)
+
+    # pyautogui.scroll(100)
+    count = 0
+    while count < 3:
+        count = count + 1
+        pyautogui.scroll(300)
+        pyautogui.sleep(1)
+
+
     sys.stdout.flush()
 
 hello()
