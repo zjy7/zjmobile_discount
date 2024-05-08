@@ -107,6 +107,9 @@ class Automouse:
         while True:
             # 移至“去观看”按钮并点击
             pyautogui.click(l + 340, r + 400, button='left')
+            # 移至“去看看”按钮并点击
+            # pyautogui.click(l + 340, r + 514, button='left')
+
             if likes < self.MAX_LIKES:
                 if self.check_video(l, r):
                     self.like_video(l, r)

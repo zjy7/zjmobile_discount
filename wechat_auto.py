@@ -76,7 +76,7 @@ class Automouse:
 
     def run(self, ):
         # 检查管理员权限
-        RunAsAdmin()
+        # RunAsAdmin()
         while True:
             try:
                 self.MAX_LIKES = int(input('输入点赞次数：'))
@@ -97,6 +97,8 @@ class Automouse:
         print('into 111')
         print(pyautogui.locateOnScreen)
         l, r, w, h = pyautogui.locateOnScreen(image, confidence=0.9)  # 添加confidence防止nonetypeeerror，需要安装opencv库
+        # yyy = pyautogui.locateOnScreen(image, confidence=0.9)  # 添加confidence防止nonetypeeerror，需要安装opencv库
+        # print(yyy)
         print('into 222')
         pyautogui.moveTo(l, r)
         print(f'标题栏坐标信息：x:{l}, y:{r}, w:{w}, h:{h}')
